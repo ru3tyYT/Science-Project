@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Cells - Educational Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a3d0a 0%, #1a5c1a 100%);
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0d4d0d, #1a6b1a);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #7cfc00;
+            text-shadow: 0 0 20px rgba(124, 252, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #90ee90;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #90ee90;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #7cfc00;
+            color: #0a3d0a;
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 5px solid #7cfc00;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 25px rgba(124, 252, 0, 0.2);
+            transform: translateX(10px);
+        }
+
+        .section h2 {
+            color: #7cfc00;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #e0ffe0;
+        }
+
+        .section ul {
+            margin-left: 25px;
+            color: #e0ffe0;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .section li::marker {
+            color: #7cfc00;
+        }
+
+        /* Image Container */
+        .image-container {
+            margin: 25px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(124, 252, 0, 0.3);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #7cfc00;
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #90ee90;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(124, 252, 0, 0.3);
+        }
+
+        th {
+            background: rgba(124, 252, 0, 0.2);
+            color: #7cfc00;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(124, 252, 0, 0.1);
+        }
+
+        /* Fun Facts Box */
+        .fun-facts {
+            background: linear-gradient(135deg, rgba(124, 252, 0, 0.15), rgba(34, 139, 34, 0.15));
+            border: 2px solid #7cfc00;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .fun-facts h3 {
+            color: #7cfc00;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .fun-facts ul {
+            list-style: none;
+        }
+
+        .fun-facts li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .fun-facts li::before {
+            content: '⭐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Highlight Effect */
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, rgba(124, 252, 0, 0.3) 50%, transparent 100%);
+            background-size: 200% 100%;
+            padding: 2px 5px;
+            border-radius: 3px;
+            transition: background-position 0.3s ease;
+        }
+
+        .highlight:hover {
+            background-position: 100% 0;
+        }
+
+        /* Grid Layout for Organelles */
+        .organelle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .organelle-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #7cfc00;
+            transition: all 0.3s ease;
+        }
+
+        .organelle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 252, 0, 0.3);
+            border-color: #90ee90;
+        }
+
+        .organelle-card h3 {
+            color: #7cfc00;
+            margin-bottom: 10px;
+        }
+
+        .organelle-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #7cfc00;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a3d0a;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #90ee90;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .organelle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🧬 Animal Cells</h1>
+        <p class="subtitle">Exploring the Building Blocks of Life</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#membrane">Cell Membrane</a></li>
+            <li><a href="#nucleus">Nucleus</a></li>
+            <li><a href="#organelles">Organelles</a></li>
+            <li><a href="#differences">Plant vs Animal</a></li>
+            <li><a href="#facts">Fun Facts</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <h2><span class="section-icon">🔬</span>Overview of Animal Cells</h2>
+            <p>Animal cells are <span class="highlight">eukaryotic cells</span>, meaning they have a true nucleus and membrane-bound organelles. These remarkable structures are the fundamental units of life in all animals, from the tiniest insects to the largest mammals.</p>
+            <p>Key characteristics of animal cells include:</p>
+            <ul>
+                <li><strong>Highly organized structure</strong> with specialized compartments</li>
+                <li><strong>Flexible cell membrane</strong> that allows for diverse shapes</li>
+                <li><strong>No cell wall</strong>, unlike plant cells</li>
+                <li><strong>No chloroplasts</strong>, as animals don't perform photosynthesis</li>
+                <li><strong>Small vacuoles</strong> for temporary storage</li>
+            </ul>
+            <div class="image-container">
+                <img src="https://images.twinkl.co.uk/tr/raw/upload/u/ux/organelles-of-animal-cell_ver_1.jpg" alt="Animal Cell Overview Diagram">
+                <p class="image-caption">A typical animal cell with labeled organelles</p>
+            </div>
+        </section>
+
+        <!-- Cell Membrane Section -->
+        <section id="membrane" class="section">
+            <h2><span class="section-icon">🧱</span>Cell Membrane</h2>
+            <p>The <span class="highlight">cell membrane</span> (also called plasma membrane) is the outer boundary of the cell. It's composed of a <strong>phospholipid bilayer</strong> embedded with proteins, cholesterol, and carbohydrates.</p>
+            <p><strong>Structure:</strong></p>
+            <ul>
+                <li><strong>Phospholipid bilayer:</strong> Two layers of lipid molecules with hydrophilic heads facing outward and hydrophobic tails facing inward</li>
+                <li><strong>Proteins:</strong> Transport proteins, receptor proteins, and enzymes</li>
+                <li><strong>Cholesterol:</strong> Maintains membrane fluidity</li>
+                <li><strong>Carbohydrates:</strong> Attached to proteins and lipids for cell recognition</li>
+            </ul>
+            <p><strong>Functions:</strong></p>
+            <ul>
+                <li>Controls what enters and exits the cell (selective permeability)</li>
+                <li>Facilitates cell communication through receptors</li>
+                <li>Provides structural support and shape</li>
+                <li>Enables cell recognition and immune response</li>
+            </ul>
+            <div class="image-container">
+                <img src="https://cdn.kastatic.org/ka-perseus-images/26ffb8e955fba1897b562cb0b93e8cadf621dfc5.png" alt="Phospholipid Bilayer Structure">
+                <p class="image-caption">Cell membrane structure with embedded proteins</p>
+            </div>
+        </section>
+
+        <!-- Cytoplasm Section -->
+        <section id="cytoplasm" class="section">
+            <h2><span class="section-icon">💧</span>Cytoplasm</h2>
+            <p>The <span class="highlight">cytoplasm</span> is the gel-like fluid that fills the cell between the cell membrane and the nucleus. It contains water, salts, and organic molecules that support cellular processes.</p>
+            <p><strong>Functions of Cytoplasm:</strong></p>
+            <ul>
+                <li><strong>Medium for chemical reactions:</strong> Provides the environment for metabolic activities</li>
+                <li><strong>Holds organelles in place:</strong> Suspends cellular structures</li>
+                <li><strong>Nutrient distribution:</strong> Helps distribute nutrients throughout the cell</li>
+                <li><strong>Waste removal:</strong> Assists in transporting waste to the cell membrane</li>
+            </ul>
+            <div class="image-container">
+                <img src="https://microbenotes.com/wp-content/uploads/2020/02/Cytoplasm-Diagram.jpeg" alt="Cytoplasm Structure">
+                <p class="image-caption">The cytoplasm fills the cell and supports organelles</p>
+            </div>
+        </section>
+
+        <!-- Nucleus Section -->
+        <section id="nucleus" class="section">
+            <h2><span class="section-icon">🧠</span>Nucleus and Nucleolus</h2>
+            <p>The <span class="highlight">nucleus</span> is the control center of the cell, often called the "brain" of the cell. It stores the cell's genetic information in the form of DNA.</p>
+            <p><strong>Nucleus Functions:</strong></p>
+            <ul>
+                <li>Stores DNA (genetic material)</li>
+                <li>Controls cell growth and metabolism</li>
+                <li>Regulates gene expression</li>
+                <li>Controls cell reproduction and division</li>
+            </ul>
+            <p>The <span class="highlight">nucleolus</span> is a dense region within the nucleus responsible for:</p>
+            <ul>
+                <li>Producing ribosomal RNA (rRNA)</li>
+                <li>Assembling ribosome subunits</li>
+            </ul>
+            <p><strong>Nuclear envelope:</strong> Double membrane with pores that control what enters and exits the nucleus.</p>
+            <div class="image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpgxIQ5oo8lsjMji_dNAYbqL25BUvdpMeEQxUXw1_mrJ6lKUNo1E058JBgxze4KzTJcshJwhPU" alt="Nucleus Structure">
+                <p class="image-caption">The nucleus contains the cell's genetic information</p>
+            </div>
+        </section>
+
+        <!-- Organelles Section -->
+        <section id="organelles" class="section">
+            <h2><span class="section-icon">⚙️</span>Major Organelles</h2>
+            
+            <div class="organelle-grid">
+                <!-- Ribosomes -->
+                <div class="organelle-card">
+                    <h3>🔵 Ribosomes</h3>
+                    <p><strong>Location:</strong> Free in cytoplasm or attached to Rough ER</p>
+                    <p><strong>Function:</strong> Protein synthesis - translate mRNA into proteins</p>
+                    <p>Ribosomes are the "protein factories" of the cell, reading genetic instructions to build proteins.</p>
+                    <img src="https://www.news-medical.net/image-handler/picture/2019/4/By_Designua.jpg" alt="Ribosome Structure">
+                </div>
+
+                <!-- Endoplasmic Reticulum -->
+                <div class="organelle-card">
+                    <h3>📦 Endoplasmic Reticulum (ER)</h3>
+                    <p><strong>Rough ER:</strong> Studded with ribosomes; folds and processes proteins</p>
+                    <p><strong>Smooth ER:</strong> No ribosomes; produces lipids, detoxifies substances, stores calcium ions</p>
+                    <p>The ER is a network of membranes extending from the nucleus.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Blausen_0350_EndoplasmicReticulum.png/1200px-Blausen_0350_EndoplasmicReticulum.png" alt="Endoplasmic Reticulum">
+                </div>
+
+                <!-- Golgi Apparatus -->
+                <div class="organelle-card">
+                    <h3>📮 Golgi Apparatus</h3>
+                    <p><strong>Function:</strong> Modifies, sorts, and packages proteins and lipids for delivery</p>
+                    <p>Often called the "post office" or "shipping center" of the cell. It adds finishing touches to proteins and sends them to their destinations.</p>
+                    <img src="https://www.news-medical.net/image-handler/picture/2016/6/Golgi_body_shutterstock_300259154.jpg" alt="Golgi Apparatus">
+                </div>
+
+                <!-- Mitochondria -->
+                <div class="organelle-card">
+                    <h3>⚡ Mitochondria</h3>
+                    <p><strong>Function:</strong> Produces ATP (cellular energy) through cellular respiration</p>
+                    <p>Known as the "powerhouse" of the cell. Mitochondria have their own DNA and are thought to have evolved from ancient bacteria.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Animal_mitochondrion_diagram_en.svg/1200px-Animal_mitochondrion_diagram_en.svg.png" alt="Mitochondrion">
+                </div>
+
+                <!-- Lysosomes -->
+                <div class="organelle-card">
+                    <h3>🗑️ Lysosomes</h3>
+                    <p><strong>Function:</strong> Digest and break down waste materials, damaged organelles, and foreign substances</p>
+                    <p>Contain digestive enzymes; act as the cell's "recycling center" or "garbage disposal."</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSxQWrhXwweVQ1RTRl3CRyoOCTebxlTGxmYg&s" alt="Lysosome">
+                </div>
+
+                <!-- Peroxisomes -->
+                <div class="organelle-card">
+                    <h3>🧪 Peroxisomes</h3>
+                    <p><strong>Function:</strong> Break down fatty acids and detoxify harmful substances like hydrogen peroxide</p>
+                    <p>Contain oxidative enzymes that protect the cell from toxic byproducts.</p>
+                    <img src="https://media.istockphoto.com/id/2061388569/vector/peroxisome-anatomy-cross-section-of-a-cell-organelle.jpg?s=612x612&w=0&k=20&c=lAHJnFopyGBoIl2IzdvqShIq4IsEUFMGCO2c2C4F4x0=" alt="Peroxisome">
+                </div>
+
+                <!-- Centrioles -->
+                <div class="organelle-card">
+                    <h3>⭕ Centrioles</h3>
+                    <p><strong>Function:</strong> Organize spindle fibers during cell division (mitosis and meiosis)</p>
+                    <p>Two cylindrical structures found near the nucleus; help separate chromosomes during cell division.</p>
+                    <img src="https://microbenotes.com/wp-content/uploads/2018/12/Centrioles-Structure-and-Functions.jpg" alt="Centrioles">
+                </div>
+
+                <!-- Vacuoles -->
+                <div class="organelle-card">
+                    <h3>💧 Vacuoles</h3>
+                    <p><strong>Function:</strong> Temporary storage of water, nutrients, and waste products</p>
+                    <p>Animal cells have small, numerous vacuoles (unlike plant cells which have one large central vacuole).</p>
+                    <img src="https://i.ytimg.com/vi/AqNkXA8dog8/maxresdefault.jpg" alt="Small Vacuoles">
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Cells Section -->
+        <section id="specialized" class="section">
+            <h2><span class="section-icon">🌟</span>Specialized Animal Cells</h2>
+            <p>Animal cells can differentiate into specialized types, each adapted for specific functions:</p>
+            
+            <div class="organelle-grid">
+                <div class="organelle-card">
+                    <h3>💪 Muscle Cells</h3>
+                    <ul>
+                        <li>Contain contractile proteins (actin and myosin)</li>
+                        <li>Many mitochondria for energy</li>
+                        <li>Enable movement and locomotion</li>
+                        <li>Three types: skeletal, cardiac, smooth</li>
+                    </ul>
+                </div>
+
+                <div class="organelle-card">
+                    <h3>🔴 Red Blood Cells (RBC)</h3>
+                    <ul>
+                        <li>Carry oxygen using hemoglobin</li>
+                        <li>No nucleus (unique among animal cells)</li>
+                        <li>Biconcave shape for surface area</li>
+                        <li>Flexible to squeeze through capillaries</li>
+                    </ul>
+                </div>
+
+                <div class="organelle-card">
+                    <h3>⚪ White Blood Cells (WBC)</h3>
+                    <ul>
+                        <li>Part of immune system</li>
+                        <li>Fight infections and disease</li>
+                        <li>Can change shape (amoeboid movement)</li>
+                        <li>Several types with different functions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differences from Plant Cells Section -->
+        <section id="differences" class="section">
+            <h2><span class="section-icon">🌿</span>Differences from Plant Cells</h2>
+            <p>While both animal and plant cells are eukaryotic, they have several key differences:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Animal Cells</th>
+                        <th>Plant Cells</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cell Wall</strong></td>
+                        <td>❌ No cell wall</td>
+                        <td>✅ Rigid cellulose cell wall</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shape</strong></td>
+                        <td>Irregular, flexible shape</td>
+                        <td>Fixed, rectangular shape</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chloroplasts</strong></td>
+                        <td>❌ No chloroplasts</td>
+                        <td>✅ Chloroplasts for photosynthesis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vacuoles</strong></td>
+                        <td>Small, multiple vacuoles</td>
+                        <td>One large central vacuole</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Centrioles</strong></td>
+                        <td>✅ Present in most animal cells</td>
+                        <td>❌ Absent in most plant cells</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Energy Storage</strong></td>
+                        <td>Glycogen</td>
+                        <td>Starch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lysosomes</strong></td>
+                        <td>✅ Common and abundant</td>
+                        <td>Rare or absent</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plasmodesmata</strong></td>
+                        <td>❌ No plasmodesmata</td>
+                        <td>✅ Channels between cells</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="image-container">
+                <img src="https://cdn1.byjus.com/wp-content/uploads/2017/11/Plant-and-Animal-Cell-Full-min.png" alt="Animal Cell vs Plant Cell Comparison">
+                <p class="image-caption">Visual comparison highlighting key differences</p>
+            </div>
+        </section>
+
+        <!-- Cellular Communication Section -->
+        <section id="communication" class="section">
+            <h2><span class="section-icon">📡</span>Cellular Communication and Homeostasis</h2>
+            <p>Animal cells must communicate with each other and maintain internal balance (homeostasis) to function properly.</p>
+            
+            <p><strong>Cell Communication Methods:</strong></p>
+            <ul>
+                <li><strong>Direct contact:</strong> Gap junctions allow direct exchange of small molecules</li>
+                <li><strong>Chemical signals:</strong> Hormones and neurotransmitters</li>
+                <li><strong>Receptor proteins:</strong> Receive and respond to external signals</li>
+                <li><strong>Signal transduction:</strong> Converts external signals into cellular responses</li>
+            </ul>
+
+            <p><strong>Maintaining Homeostasis:</strong></p>
+            <ul>
+                <li><strong>Ion balance:</strong> Sodium-potassium pumps maintain proper ion concentrations</li>
+                <li><strong>pH regulation:</strong> Buffers maintain optimal pH levels</li>
+                <li><strong>Temperature control:</strong> Enzymes function best at specific temperatures</li>
+                <li><strong>Nutrient balance:</strong> Regulate uptake and storage of nutrients</li>
+                <li><strong>Water balance:</strong> Osmosis and active transport control water levels</li>
+            </ul>
+        </section>
+
+        <!-- Fun Facts Section -->
+        <section id="facts" class="fun-facts">
+            <h3>🎉 Fun Facts About Animal Cells</h3>
+            <ul>
+                <li><strong>Longest cells:</strong> Some neurons can be over 1 meter (3 feet) long, extending from the spine to the toes!</li>
+                <li><strong>Cell division:</strong> Human cells divide approximately every 24 hours, but this varies by cell type. Red blood cells are replaced every 120 days!</li>
+                <li><strong>Mitochondrial DNA:</strong> Mitochondria have their own DNA, separate from nuclear DNA, supporting the theory they were once independent organisms.</li>
+                <li><strong>Flexible membranes:</strong> The lack of a cell wall allows animal cells to form specialized shapes like the biconcave discs of red blood cells or the branching structure of neurons.</li>
+                <li><strong>Tiny but mighty:</strong> Most animal cells are between 10-30 micrometers in diameter - that's about 1/100th the width of a human hair!</li>
+                <li><strong>Protein powerhouse:</strong> A typical human cell contains about 42 million protein molecules working together.</li>
+                <li><strong>Ancient partnership:</strong> Mitochondria are believed to have evolved about 1.5 billion years ago when a larger cell engulfed a smaller energy-producing bacterium.</li>
+                <li><strong>Constant renewal:</strong> Your body replaces about 330 billion cells every single day!</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>🧬 Animal Cells Educational Guide | Science Project 2025</p>
+        <p>Exploring the fascinating world of cellular biology</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add intersection observer for fade-in animations
+        const sections = document.querySelectorAll('.section, .organelle-card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
