@@ -97,13 +97,6 @@
             color: #7cfc00;
             font-size: 2.2rem;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-icon {
-            font-size: 2.5rem;
         }
 
         .section p {
@@ -195,20 +188,17 @@
         }
 
         .fun-facts ul {
-            list-style: none;
+            list-style: disc;
+            margin-left: 25px;
         }
 
         .fun-facts li {
             padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
+            color: #e0ffe0;
         }
 
-        .fun-facts li::before {
-            content: '⭐';
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
+        .fun-facts li::marker {
+            color: #7cfc00;
         }
 
         /* Highlight Effect */
@@ -298,7 +288,7 @@
 </head>
 <body>
     <header>
-        <h1>🧬 Animal Cells</h1>
+        <h1>Animal Cells</h1>
         <p class="subtitle">Exploring the Building Blocks of Life</p>
     </header>
 
@@ -316,7 +306,7 @@
     <div class="container">
         <!-- Overview Section -->
         <section id="overview" class="section">
-            <h2><span class="section-icon">🔬</span>Overview of Animal Cells</h2>
+            <h2>Overview of Animal Cells</h2>
             <p>Animal cells are <span class="highlight">eukaryotic cells</span>, meaning they have a true nucleus and membrane-bound organelles. These remarkable structures are the fundamental units of life in all animals, from the tiniest insects to the largest mammals.</p>
             <p>Key characteristics of animal cells include:</p>
             <ul>
@@ -334,7 +324,7 @@
 
         <!-- Cell Membrane Section -->
         <section id="membrane" class="section">
-            <h2><span class="section-icon">🧱</span>Cell Membrane</h2>
+            <h2>Cell Membrane</h2>
             <p>The <span class="highlight">cell membrane</span> (also called plasma membrane) is the outer boundary of the cell. It's composed of a <strong>phospholipid bilayer</strong> embedded with proteins, cholesterol, and carbohydrates.</p>
             <p><strong>Structure:</strong></p>
             <ul>
@@ -358,7 +348,7 @@
 
         <!-- Cytoplasm Section -->
         <section id="cytoplasm" class="section">
-            <h2><span class="section-icon">💧</span>Cytoplasm</h2>
+            <h2>Cytoplasm</h2>
             <p>The <span class="highlight">cytoplasm</span> is the gel-like fluid that fills the cell between the cell membrane and the nucleus. It contains water, salts, and organic molecules that support cellular processes.</p>
             <p><strong>Functions of Cytoplasm:</strong></p>
             <ul>
@@ -375,7 +365,7 @@
 
         <!-- Nucleus Section -->
         <section id="nucleus" class="section">
-            <h2><span class="section-icon">🧠</span>Nucleus and Nucleolus</h2>
+            <h2>Nucleus and Nucleolus</h2>
             <p>The <span class="highlight">nucleus</span> is the control center of the cell, often called the "brain" of the cell. It stores the cell's genetic information in the form of DNA.</p>
             <p><strong>Nucleus Functions:</strong></p>
             <ul>
@@ -398,12 +388,12 @@
 
         <!-- Organelles Section -->
         <section id="organelles" class="section">
-            <h2><span class="section-icon">⚙️</span>Major Organelles</h2>
+            <h2>Major Organelles</h2>
             
             <div class="organelle-grid">
                 <!-- Ribosomes -->
                 <div class="organelle-card">
-                    <h3>🔵 Ribosomes</h3>
+                    <h3>Ribosomes</h3>
                     <p><strong>Location:</strong> Free in cytoplasm or attached to Rough ER</p>
                     <p><strong>Function:</strong> Protein synthesis - translate mRNA into proteins</p>
                     <p>Ribosomes are the "protein factories" of the cell, reading genetic instructions to build proteins.</p>
@@ -412,7 +402,7 @@
 
                 <!-- Endoplasmic Reticulum -->
                 <div class="organelle-card">
-                    <h3>📦 Endoplasmic Reticulum (ER)</h3>
+                    <h3>Endoplasmic Reticulum (ER)</h3>
                     <p><strong>Rough ER:</strong> Studded with ribosomes; folds and processes proteins</p>
                     <p><strong>Smooth ER:</strong> No ribosomes; produces lipids, detoxifies substances, stores calcium ions</p>
                     <p>The ER is a network of membranes extending from the nucleus.</p>
@@ -421,7 +411,7 @@
 
                 <!-- Golgi Apparatus -->
                 <div class="organelle-card">
-                    <h3>📮 Golgi Apparatus</h3>
+                    <h3>Golgi Apparatus</h3>
                     <p><strong>Function:</strong> Modifies, sorts, and packages proteins and lipids for delivery</p>
                     <p>Often called the "post office" or "shipping center" of the cell. It adds finishing touches to proteins and sends them to their destinations.</p>
                     <img src="https://www.news-medical.net/image-handler/picture/2016/6/Golgi_body_shutterstock_300259154.jpg" alt="Golgi Apparatus">
@@ -429,7 +419,7 @@
 
                 <!-- Mitochondria -->
                 <div class="organelle-card">
-                    <h3>⚡ Mitochondria</h3>
+                    <h3>Mitochondria</h3>
                     <p><strong>Function:</strong> Produces ATP (cellular energy) through cellular respiration</p>
                     <p>Known as the "powerhouse" of the cell. Mitochondria have their own DNA and are thought to have evolved from ancient bacteria.</p>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Animal_mitochondrion_diagram_en.svg/1200px-Animal_mitochondrion_diagram_en.svg.png" alt="Mitochondrion">
@@ -437,7 +427,7 @@
 
                 <!-- Lysosomes -->
                 <div class="organelle-card">
-                    <h3>🗑️ Lysosomes</h3>
+                    <h3>Lysosomes</h3>
                     <p><strong>Function:</strong> Digest and break down waste materials, damaged organelles, and foreign substances</p>
                     <p>Contain digestive enzymes; act as the cell's "recycling center" or "garbage disposal."</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSxQWrhXwweVQ1RTRl3CRyoOCTebxlTGxmYg&s" alt="Lysosome">
@@ -445,7 +435,7 @@
 
                 <!-- Peroxisomes -->
                 <div class="organelle-card">
-                    <h3>🧪 Peroxisomes</h3>
+                    <h3>Peroxisomes</h3>
                     <p><strong>Function:</strong> Break down fatty acids and detoxify harmful substances like hydrogen peroxide</p>
                     <p>Contain oxidative enzymes that protect the cell from toxic byproducts.</p>
                     <img src="https://media.istockphoto.com/id/2061388569/vector/peroxisome-anatomy-cross-section-of-a-cell-organelle.jpg?s=612x612&w=0&k=20&c=lAHJnFopyGBoIl2IzdvqShIq4IsEUFMGCO2c2C4F4x0=" alt="Peroxisome">
@@ -453,7 +443,7 @@
 
                 <!-- Centrioles -->
                 <div class="organelle-card">
-                    <h3>⭕ Centrioles</h3>
+                    <h3>Centrioles</h3>
                     <p><strong>Function:</strong> Organize spindle fibers during cell division (mitosis and meiosis)</p>
                     <p>Two cylindrical structures found near the nucleus; help separate chromosomes during cell division.</p>
                     <img src="https://microbenotes.com/wp-content/uploads/2018/12/Centrioles-Structure-and-Functions.jpg" alt="Centrioles">
@@ -461,7 +451,7 @@
 
                 <!-- Vacuoles -->
                 <div class="organelle-card">
-                    <h3>💧 Vacuoles</h3>
+                    <h3>Vacuoles</h3>
                     <p><strong>Function:</strong> Temporary storage of water, nutrients, and waste products</p>
                     <p>Animal cells have small, numerous vacuoles (unlike plant cells which have one large central vacuole).</p>
                     <img src="https://i.ytimg.com/vi/AqNkXA8dog8/maxresdefault.jpg" alt="Small Vacuoles">
@@ -471,12 +461,12 @@
 
         <!-- Specialized Cells Section -->
         <section id="specialized" class="section">
-            <h2><span class="section-icon">🌟</span>Specialized Animal Cells</h2>
+            <h2>Specialized Animal Cells</h2>
             <p>Animal cells can differentiate into specialized types, each adapted for specific functions:</p>
             
             <div class="organelle-grid">
                 <div class="organelle-card">
-                    <h3>💪 Muscle Cells</h3>
+                    <h3>Muscle Cells</h3>
                     <ul>
                         <li>Contain contractile proteins (actin and myosin)</li>
                         <li>Many mitochondria for energy</li>
@@ -486,7 +476,7 @@
                 </div>
 
                 <div class="organelle-card">
-                    <h3>🔴 Red Blood Cells (RBC)</h3>
+                    <h3>Red Blood Cells (RBC)</h3>
                     <ul>
                         <li>Carry oxygen using hemoglobin</li>
                         <li>No nucleus (unique among animal cells)</li>
@@ -496,7 +486,7 @@
                 </div>
 
                 <div class="organelle-card">
-                    <h3>⚪ White Blood Cells (WBC)</h3>
+                    <h3>White Blood Cells (WBC)</h3>
                     <ul>
                         <li>Part of immune system</li>
                         <li>Fight infections and disease</li>
@@ -509,7 +499,7 @@
 
         <!-- Differences from Plant Cells Section -->
         <section id="differences" class="section">
-            <h2><span class="section-icon">🌿</span>Differences from Plant Cells</h2>
+            <h2>Differences from Plant Cells</h2>
             <p>While both animal and plant cells are eukaryotic, they have several key differences:</p>
             
             <table>
@@ -572,7 +562,7 @@
 
         <!-- Cellular Communication Section -->
         <section id="communication" class="section">
-            <h2><span class="section-icon">📡</span>Cellular Communication and Homeostasis</h2>
+            <h2>Cellular Communication and Homeostasis</h2>
             <p>Animal cells must communicate with each other and maintain internal balance (homeostasis) to function properly.</p>
             
             <p><strong>Cell Communication Methods:</strong></p>
@@ -595,7 +585,7 @@
 
         <!-- Fun Facts Section -->
         <section id="facts" class="fun-facts">
-            <h3>🎉 Fun Facts About Animal Cells</h3>
+            <h3>Fun Facts About Animal Cells</h3>
             <ul>
                 <li><strong>Longest cells:</strong> Some neurons can be over 1 meter (3 feet) long, extending from the spine to the toes!</li>
                 <li><strong>Cell division:</strong> Human cells divide approximately every 24 hours, but this varies by cell type. Red blood cells are replaced every 120 days!</li>
@@ -610,7 +600,7 @@
     </div>
 
     <footer>
-        <p>🧬 Animal Cells Educational Guide | Science Project 2025</p>
+        <p>Animal Cells Educational Guide | Science Project 2025</p>
         <p>Exploring the fascinating world of cellular biology</p>
     </footer>
 
