@@ -36,6 +36,140 @@
         .subtitle {
             font-size: 1.3rem;
             color: #90ee90;
+            line-height: 1.6;
+        }
+
+        /* Meme Button */
+        .meme-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .meme-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Meme Modal */
+        .meme-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            z-index: 2000;
+            overflow: hidden;
+        }
+
+        .meme-modal.active {
+            display: block;
+        }
+
+        .meme-content {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: #ff4757;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff4757;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+            background: #ff4757;
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .meme-text {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ff4757;
+            text-align: center;
+            white-space: nowrap;
+            animation: scrollText 15s linear infinite;
+            position: absolute;
+            top: 15%;
+            left: 0;
+            width: max-content;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100vw);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(255, 71, 87, 0.8);
+            }
+            50% {
+                transform: scale(1.15);
+                box-shadow: 0 0 60px rgba(255, 71, 87, 1);
+            }
+        }
+
+        .meme-images {
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 50px;
+        }
+
+        .meme-images img {
+            width: 40vw;
+            height: auto;
+            max-height: 60vh;
+            object-fit: contain;
+            border-radius: 20px;
+            border: 5px solid #ff4757;
+            animation: pulse 2s infinite;
         }
 
         /* Navigation */
@@ -102,11 +236,13 @@
         .section p {
             margin-bottom: 15px;
             color: #e0ffe0;
+            font-size: 1.1rem;
         }
 
         .section ul {
             margin-left: 25px;
             color: #e0ffe0;
+            font-size: 1.05rem;
         }
 
         .section li {
@@ -146,6 +282,27 @@
             color: #90ee90;
         }
 
+        /* Model Gallery */
+        .model-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .model-image {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #7cfc00;
+        }
+
+        .model-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
         /* Table */
         table {
             width: 100%;
@@ -160,6 +317,7 @@
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid rgba(124, 252, 0, 0.3);
+            font-size: 1.05rem;
         }
 
         th {
@@ -195,6 +353,7 @@
         .fun-facts li {
             padding: 10px 0;
             color: #e0ffe0;
+            font-size: 1.05rem;
         }
 
         .fun-facts li::marker {
@@ -239,6 +398,16 @@
         .organelle-card h3 {
             color: #7cfc00;
             margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .organelle-card p {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .organelle-card ul {
+            font-size: 1.05rem;
         }
 
         .organelle-card img {
@@ -283,17 +452,72 @@
             .organelle-grid {
                 grid-template-columns: 1fr;
             }
+
+            .model-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .meme-btn {
+                top: 10px;
+                right: 10px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .meme-content {
+                padding: 30px 20px;
+            }
+
+            .meme-text {
+                font-size: 2rem;
+            }
+
+            .meme-images {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .meme-images img {
+                max-width: 80vw;
+                max-height: 30vh;
+            }
+
+            .close-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 2.5rem;
+                top: 15px;
+                right: 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Meme Button -->
+    <button class="meme-btn" id="memeBtn">MEME</button>
+
+    <!-- Meme Modal -->
+    <div class="meme-modal" id="memeModal">
+        <div class="meme-content">
+            <button class="close-btn" id="closeModal">×</button>
+            <div class="meme-text">
+                67 • MANGOMANGOMANGO • 67 • MANGOMANGOMANGO • 67 • MANGOMANGOMANGO • 67 • MANGOMANGOMANGO • 67 • MANGOMANGOMANGO • 67 • MANGOMANGOMANGO
+            </div>
+            <div class="meme-images">
+                <img src="https://i.postimg.cc/5X8GZxkj/OIP.jpg" alt="Meme 1">
+                <img src="https://i.postimg.cc/5QHKp1CB/download-(1).jpg" alt="Meme 2">
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Animal Cells</h1>
-        <p class="subtitle">Exploring the Building Blocks of Life</p>
+        <p class="subtitle">Exploring the Building Blocks of Life<br>with Mason, Yoonsoo, Grace, and Bryce</p>
     </header>
 
     <nav>
         <ul>
+            <li><a href="#model">Our Model</a></li>
             <li><a href="#overview">Overview</a></li>
             <li><a href="#membrane">Cell Membrane</a></li>
             <li><a href="#nucleus">Nucleus</a></li>
@@ -304,58 +528,74 @@
     </nav>
 
     <div class="container">
+        <!-- 3D Model Section -->
+        <section id="model" class="section">
+            <h2>Our 3D Cell Model</h2>
+            <p>We created a hands-on 3D model to show the structure of an animal cell. This physical model helps us understand how all the organelles fit together inside a real cell. Each part is labeled to show what it is and where it belongs.</p>
+            <div class="model-gallery">
+                <div class="model-image">
+                    <img src="https://i.postimg.cc/PC8hNsVL/IMG-3051.jpg" alt="Animal Cell Model - View 1">
+                    <p class="image-caption">3D model showing cell organelles with labels</p>
+                </div>
+                <div class="model-image">
+                    <img src="https://i.postimg.cc/GBwRy76B/IMG-3054.jpg" alt="Animal Cell Model - View 2">
+                    <p class="image-caption">Top view of our animal cell model</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Overview Section -->
         <section id="overview" class="section">
             <h2>Overview of Animal Cells</h2>
-            <p>Animal cells are <span class="highlight">eukaryotic cells</span>, meaning they have a true nucleus and membrane-bound organelles. These remarkable structures are the fundamental units of life in all animals, from the tiniest insects to the largest mammals.</p>
-            <p>Key characteristics of animal cells include:</p>
+            <p>Animal cells are <span class="highlight">eukaryotic cells</span>, which means they contain a nucleus and membrane-bound organelles. These cells are the fundamental building blocks of all animals, from microscopic organisms to large mammals.</p>
+            <p>Key characteristics of animal cells:</p>
             <ul>
-                <li><strong>Highly organized structure</strong> with specialized compartments</li>
-                <li><strong>Flexible cell membrane</strong> that allows for diverse shapes</li>
-                <li><strong>No cell wall</strong>, unlike plant cells</li>
-                <li><strong>No chloroplasts</strong>, as animals don't perform photosynthesis</li>
-                <li><strong>Small vacuoles</strong> for temporary storage</li>
+                <li><strong>Organized structure:</strong> Contains specialized compartments for different functions</li>
+                <li><strong>Flexible membrane:</strong> The outer boundary is adaptable, allowing various cell shapes</li>
+                <li><strong>No cell wall:</strong> Unlike plant cells, animal cells lack a rigid outer layer</li>
+                <li><strong>No chloroplasts:</strong> Animals cannot produce their own food through photosynthesis</li>
+                <li><strong>Small vacuoles:</strong> Contains multiple small storage compartments</li>
             </ul>
             <div class="image-container">
                 <img src="https://images.twinkl.co.uk/tr/raw/upload/u/ux/organelles-of-animal-cell_ver_1.jpg" alt="Animal Cell Overview Diagram">
-                <p class="image-caption">A typical animal cell with labeled organelles</p>
+                <p class="image-caption">Diagram of a typical animal cell with labeled organelles</p>
             </div>
         </section>
 
         <!-- Cell Membrane Section -->
         <section id="membrane" class="section">
             <h2>Cell Membrane</h2>
-            <p>The <span class="highlight">cell membrane</span> (also called plasma membrane) is the outer boundary of the cell. It's composed of a <strong>phospholipid bilayer</strong> embedded with proteins, cholesterol, and carbohydrates.</p>
+            <p>The <span class="highlight">cell membrane</span>, also called the plasma membrane, is the outer boundary that surrounds and protects the cell. It consists of a <strong>phospholipid bilayer</strong> with embedded proteins, cholesterol, and carbohydrates.</p>
             <p><strong>Structure:</strong></p>
             <ul>
-                <li><strong>Phospholipid bilayer:</strong> Two layers of lipid molecules with hydrophilic heads facing outward and hydrophobic tails facing inward</li>
+                <li><strong>Phospholipid bilayer:</strong> Two layers of lipid molecules with hydrophilic (water-loving) heads and hydrophobic (water-fearing) tails</li>
                 <li><strong>Proteins:</strong> Transport proteins, receptor proteins, and enzymes</li>
-                <li><strong>Cholesterol:</strong> Maintains membrane fluidity</li>
+                <li><strong>Cholesterol:</strong> Maintains membrane fluidity and stability</li>
                 <li><strong>Carbohydrates:</strong> Attached to proteins and lipids for cell recognition</li>
             </ul>
             <p><strong>Functions:</strong></p>
             <ul>
-                <li>Controls what enters and exits the cell (selective permeability)</li>
-                <li>Facilitates cell communication through receptors</li>
-                <li>Provides structural support and shape</li>
-                <li>Enables cell recognition and immune response</li>
+                <li>Controls what enters and exits the cell through selective permeability</li>
+                <li>Facilitates cellular communication through receptor proteins</li>
+                <li>Provides structural support and maintains cell shape</li>
+                <li>Enables cell recognition for immune system function</li>
             </ul>
             <div class="image-container">
                 <img src="https://cdn.kastatic.org/ka-perseus-images/26ffb8e955fba1897b562cb0b93e8cadf621dfc5.png" alt="Phospholipid Bilayer Structure">
-                <p class="image-caption">Cell membrane structure with embedded proteins</p>
+                <p class="image-caption">Cell membrane structure showing phospholipid bilayer with embedded proteins</p>
             </div>
         </section>
 
         <!-- Cytoplasm Section -->
         <section id="cytoplasm" class="section">
             <h2>Cytoplasm</h2>
-            <p>The <span class="highlight">cytoplasm</span> is the gel-like fluid that fills the cell between the cell membrane and the nucleus. It contains water, salts, and organic molecules that support cellular processes.</p>
-            <p><strong>Functions of Cytoplasm:</strong></p>
+            <p>The <span class="highlight">cytoplasm</span> is a gel-like substance that fills the space between the cell membrane and the nucleus. It consists of water, salts, and organic molecules that support cellular processes.</p>
+            <p><strong>Functions of cytoplasm:</strong></p>
             <ul>
                 <li><strong>Medium for chemical reactions:</strong> Provides the environment for metabolic activities</li>
-                <li><strong>Holds organelles in place:</strong> Suspends cellular structures</li>
-                <li><strong>Nutrient distribution:</strong> Helps distribute nutrients throughout the cell</li>
-                <li><strong>Waste removal:</strong> Assists in transporting waste to the cell membrane</li>
+                <li><strong>Suspends organelles:</strong> Holds cellular structures in place</li>
+                <li><strong>Nutrient distribution:</strong> Helps transport nutrients throughout the cell</li>
+                <li><strong>Waste removal:</strong> Assists in moving waste materials to the cell membrane</li>
             </ul>
             <div class="image-container">
                 <img src="https://microbenotes.com/wp-content/uploads/2020/02/Cytoplasm-Diagram.jpeg" alt="Cytoplasm Structure">
@@ -366,23 +606,19 @@
         <!-- Nucleus Section -->
         <section id="nucleus" class="section">
             <h2>Nucleus and Nucleolus</h2>
-            <p>The <span class="highlight">nucleus</span> is the control center of the cell, often called the "brain" of the cell. It stores the cell's genetic information in the form of DNA.</p>
-            <p><strong>Nucleus Functions:</strong></p>
+            <p>The <span class="highlight">nucleus</span> is the control center of the cell. It stores the cell's genetic information in the form of DNA and regulates all cellular activities.</p>
+            <p><strong>Functions of the nucleus:</strong></p>
             <ul>
-                <li>Stores DNA (genetic material)</li>
+                <li>Stores DNA (deoxyribonucleic acid), the genetic material</li>
                 <li>Controls cell growth and metabolism</li>
                 <li>Regulates gene expression</li>
                 <li>Controls cell reproduction and division</li>
             </ul>
-            <p>The <span class="highlight">nucleolus</span> is a dense region within the nucleus responsible for:</p>
-            <ul>
-                <li>Producing ribosomal RNA (rRNA)</li>
-                <li>Assembling ribosome subunits</li>
-            </ul>
-            <p><strong>Nuclear envelope:</strong> Double membrane with pores that control what enters and exits the nucleus.</p>
+            <p>The <span class="highlight">nucleolus</span> is a dense region within the nucleus that produces ribosomal RNA (rRNA) and assembles ribosome subunits.</p>
+            <p><strong>Nuclear envelope:</strong> A double membrane with nuclear pores that regulate what enters and exits the nucleus.</p>
             <div class="image-container">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpgxIQ5oo8lsjMji_dNAYbqL25BUvdpMeEQxUXw1_mrJ6lKUNo1E058JBgxze4KzTJcshJwhPU" alt="Nucleus Structure">
-                <p class="image-caption">The nucleus contains the cell's genetic information</p>
+                <p class="image-caption">Structure of the nucleus showing the nuclear envelope, nucleolus, and chromatin</p>
             </div>
         </section>
 
@@ -394,50 +630,50 @@
                 <!-- Ribosomes -->
                 <div class="organelle-card">
                     <h3>Ribosomes</h3>
-                    <p><strong>Location:</strong> Free in cytoplasm or attached to Rough ER</p>
-                    <p><strong>Function:</strong> Protein synthesis - translate mRNA into proteins</p>
-                    <p>Ribosomes are the "protein factories" of the cell, reading genetic instructions to build proteins.</p>
+                    <p><strong>Location:</strong> Free-floating in cytoplasm or attached to rough endoplasmic reticulum</p>
+                    <p><strong>Function:</strong> Synthesize proteins by translating messenger RNA (mRNA)</p>
+                    <p>Ribosomes are the protein factories of the cell, reading genetic instructions to build proteins necessary for cell function.</p>
                     <img src="https://www.news-medical.net/image-handler/picture/2019/4/By_Designua.jpg" alt="Ribosome Structure">
                 </div>
 
                 <!-- Endoplasmic Reticulum -->
                 <div class="organelle-card">
                     <h3>Endoplasmic Reticulum (ER)</h3>
-                    <p><strong>Rough ER:</strong> Studded with ribosomes; folds and processes proteins</p>
-                    <p><strong>Smooth ER:</strong> No ribosomes; produces lipids, detoxifies substances, stores calcium ions</p>
-                    <p>The ER is a network of membranes extending from the nucleus.</p>
+                    <p><strong>Rough ER:</strong> Covered with ribosomes; folds and processes proteins</p>
+                    <p><strong>Smooth ER:</strong> Lacks ribosomes; synthesizes lipids, detoxifies substances, and stores calcium ions</p>
+                    <p>The ER is a network of membranes that extends from the nucleus throughout the cell.</p>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Blausen_0350_EndoplasmicReticulum.png/1200px-Blausen_0350_EndoplasmicReticulum.png" alt="Endoplasmic Reticulum">
                 </div>
 
                 <!-- Golgi Apparatus -->
                 <div class="organelle-card">
                     <h3>Golgi Apparatus</h3>
-                    <p><strong>Function:</strong> Modifies, sorts, and packages proteins and lipids for delivery</p>
-                    <p>Often called the "post office" or "shipping center" of the cell. It adds finishing touches to proteins and sends them to their destinations.</p>
+                    <p><strong>Function:</strong> Modifies, sorts, and packages proteins and lipids for transport</p>
+                    <p>Often called the "shipping center" of the cell, the Golgi apparatus processes proteins and lipids before sending them to their final destinations.</p>
                     <img src="https://www.news-medical.net/image-handler/picture/2016/6/Golgi_body_shutterstock_300259154.jpg" alt="Golgi Apparatus">
                 </div>
 
                 <!-- Mitochondria -->
                 <div class="organelle-card">
                     <h3>Mitochondria</h3>
-                    <p><strong>Function:</strong> Produces ATP (cellular energy) through cellular respiration</p>
-                    <p>Known as the "powerhouse" of the cell. Mitochondria have their own DNA and are thought to have evolved from ancient bacteria.</p>
+                    <p><strong>Function:</strong> Produces ATP (adenosine triphosphate) through cellular respiration</p>
+                    <p>Known as the "powerhouse" of the cell, mitochondria convert nutrients into energy. They contain their own DNA, suggesting an evolutionary origin as independent organisms.</p>
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Animal_mitochondrion_diagram_en.svg/1200px-Animal_mitochondrion_diagram_en.svg.png" alt="Mitochondrion">
                 </div>
 
                 <!-- Lysosomes -->
                 <div class="organelle-card">
                     <h3>Lysosomes</h3>
-                    <p><strong>Function:</strong> Digest and break down waste materials, damaged organelles, and foreign substances</p>
-                    <p>Contain digestive enzymes; act as the cell's "recycling center" or "garbage disposal."</p>
+                    <p><strong>Function:</strong> Break down and digest waste materials, damaged organelles, and foreign substances</p>
+                    <p>Lysosomes contain digestive enzymes and function as the cell's recycling center and waste disposal system.</p>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSxQWrhXwweVQ1RTRl3CRyoOCTebxlTGxmYg&s" alt="Lysosome">
                 </div>
 
                 <!-- Peroxisomes -->
                 <div class="organelle-card">
                     <h3>Peroxisomes</h3>
-                    <p><strong>Function:</strong> Break down fatty acids and detoxify harmful substances like hydrogen peroxide</p>
-                    <p>Contain oxidative enzymes that protect the cell from toxic byproducts.</p>
+                    <p><strong>Function:</strong> Break down fatty acids and detoxify harmful substances such as hydrogen peroxide</p>
+                    <p>Peroxisomes contain oxidative enzymes that protect the cell from toxic byproducts of metabolism.</p>
                     <img src="https://media.istockphoto.com/id/2061388569/vector/peroxisome-anatomy-cross-section-of-a-cell-organelle.jpg?s=612x612&w=0&k=20&c=lAHJnFopyGBoIl2IzdvqShIq4IsEUFMGCO2c2C4F4x0=" alt="Peroxisome">
                 </div>
 
@@ -445,7 +681,7 @@
                 <div class="organelle-card">
                     <h3>Centrioles</h3>
                     <p><strong>Function:</strong> Organize spindle fibers during cell division (mitosis and meiosis)</p>
-                    <p>Two cylindrical structures found near the nucleus; help separate chromosomes during cell division.</p>
+                    <p>Centrioles are paired cylindrical structures located near the nucleus that assist in chromosome separation during cell division.</p>
                     <img src="https://microbenotes.com/wp-content/uploads/2018/12/Centrioles-Structure-and-Functions.jpg" alt="Centrioles">
                 </div>
 
@@ -453,7 +689,7 @@
                 <div class="organelle-card">
                     <h3>Vacuoles</h3>
                     <p><strong>Function:</strong> Temporary storage of water, nutrients, and waste products</p>
-                    <p>Animal cells have small, numerous vacuoles (unlike plant cells which have one large central vacuole).</p>
+                    <p>Animal cells contain multiple small vacuoles, unlike plant cells which have one large central vacuole.</p>
                     <img src="https://i.ytimg.com/vi/AqNkXA8dog8/maxresdefault.jpg" alt="Small Vacuoles">
                 </div>
             </div>
@@ -462,36 +698,36 @@
         <!-- Specialized Cells Section -->
         <section id="specialized" class="section">
             <h2>Specialized Animal Cells</h2>
-            <p>Animal cells can differentiate into specialized types, each adapted for specific functions:</p>
+            <p>Animal cells can differentiate into specialized types with unique structures adapted for specific functions:</p>
             
             <div class="organelle-grid">
                 <div class="organelle-card">
                     <h3>Muscle Cells</h3>
                     <ul>
-                        <li>Contain contractile proteins (actin and myosin)</li>
-                        <li>Many mitochondria for energy</li>
-                        <li>Enable movement and locomotion</li>
-                        <li>Three types: skeletal, cardiac, smooth</li>
+                        <li>Contain contractile proteins (actin and myosin) for movement</li>
+                        <li>Abundant mitochondria provide energy for muscle contraction</li>
+                        <li>Enable body movement and locomotion</li>
+                        <li>Three types: skeletal (voluntary movement), cardiac (heart), and smooth (involuntary organs)</li>
                     </ul>
                 </div>
 
                 <div class="organelle-card">
-                    <h3>Red Blood Cells (RBC)</h3>
+                    <h3>Red Blood Cells (Erythrocytes)</h3>
                     <ul>
-                        <li>Carry oxygen using hemoglobin</li>
-                        <li>No nucleus (unique among animal cells)</li>
-                        <li>Biconcave shape for surface area</li>
-                        <li>Flexible to squeeze through capillaries</li>
+                        <li>Transport oxygen using hemoglobin protein</li>
+                        <li>Lack a nucleus (unique among animal cells) to maximize space for hemoglobin</li>
+                        <li>Biconcave disc shape increases surface area for gas exchange</li>
+                        <li>Flexible structure allows passage through narrow capillaries</li>
                     </ul>
                 </div>
 
                 <div class="organelle-card">
-                    <h3>White Blood Cells (WBC)</h3>
+                    <h3>White Blood Cells (Leukocytes)</h3>
                     <ul>
-                        <li>Part of immune system</li>
-                        <li>Fight infections and disease</li>
-                        <li>Can change shape (amoeboid movement)</li>
-                        <li>Several types with different functions</li>
+                        <li>Essential components of the immune system</li>
+                        <li>Defend against pathogens, bacteria, and viruses</li>
+                        <li>Exhibit amoeboid movement to reach infection sites</li>
+                        <li>Multiple types perform different immune functions</li>
                     </ul>
                 </div>
             </div>
@@ -500,7 +736,7 @@
         <!-- Differences from Plant Cells Section -->
         <section id="differences" class="section">
             <h2>Differences from Plant Cells</h2>
-            <p>While both animal and plant cells are eukaryotic, they have several key differences:</p>
+            <p>While both animal and plant cells are eukaryotic, they have several key structural differences:</p>
             
             <table>
                 <thead>
@@ -513,8 +749,8 @@
                 <tbody>
                     <tr>
                         <td><strong>Cell Wall</strong></td>
-                        <td>❌ No cell wall</td>
-                        <td>✅ Rigid cellulose cell wall</td>
+                        <td>❌ Absent</td>
+                        <td>✅ Rigid cellulose cell wall present</td>
                     </tr>
                     <tr>
                         <td><strong>Shape</strong></td>
@@ -523,12 +759,12 @@
                     </tr>
                     <tr>
                         <td><strong>Chloroplasts</strong></td>
-                        <td>❌ No chloroplasts</td>
-                        <td>✅ Chloroplasts for photosynthesis</td>
+                        <td>❌ Absent</td>
+                        <td>✅ Present for photosynthesis</td>
                     </tr>
                     <tr>
                         <td><strong>Vacuoles</strong></td>
-                        <td>Small, multiple vacuoles</td>
+                        <td>Multiple small vacuoles</td>
                         <td>One large central vacuole</td>
                     </tr>
                     <tr>
@@ -548,15 +784,15 @@
                     </tr>
                     <tr>
                         <td><strong>Plasmodesmata</strong></td>
-                        <td>❌ No plasmodesmata</td>
-                        <td>✅ Channels between cells</td>
+                        <td>❌ Absent</td>
+                        <td>✅ Present (channels between cells)</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="image-container">
                 <img src="https://cdn1.byjus.com/wp-content/uploads/2017/11/Plant-and-Animal-Cell-Full-min.png" alt="Animal Cell vs Plant Cell Comparison">
-                <p class="image-caption">Visual comparison highlighting key differences</p>
+                <p class="image-caption">Side-by-side comparison highlighting key structural differences</p>
             </div>
         </section>
 
@@ -565,20 +801,20 @@
             <h2>Cellular Communication and Homeostasis</h2>
             <p>Animal cells must communicate with each other and maintain internal balance (homeostasis) to function properly.</p>
             
-            <p><strong>Cell Communication Methods:</strong></p>
+            <p><strong>Cell communication methods:</strong></p>
             <ul>
-                <li><strong>Direct contact:</strong> Gap junctions allow direct exchange of small molecules</li>
-                <li><strong>Chemical signals:</strong> Hormones and neurotransmitters</li>
-                <li><strong>Receptor proteins:</strong> Receive and respond to external signals</li>
+                <li><strong>Direct contact:</strong> Gap junctions allow direct exchange of small molecules between adjacent cells</li>
+                <li><strong>Chemical signals:</strong> Hormones and neurotransmitters transmit information between cells</li>
+                <li><strong>Receptor proteins:</strong> Membrane proteins receive and respond to external signals</li>
                 <li><strong>Signal transduction:</strong> Converts external signals into cellular responses</li>
             </ul>
 
-            <p><strong>Maintaining Homeostasis:</strong></p>
+            <p><strong>Maintaining homeostasis:</strong></p>
             <ul>
                 <li><strong>Ion balance:</strong> Sodium-potassium pumps maintain proper ion concentrations</li>
-                <li><strong>pH regulation:</strong> Buffers maintain optimal pH levels</li>
-                <li><strong>Temperature control:</strong> Enzymes function best at specific temperatures</li>
-                <li><strong>Nutrient balance:</strong> Regulate uptake and storage of nutrients</li>
+                <li><strong>pH regulation:</strong> Buffer systems maintain optimal pH levels</li>
+                <li><strong>Temperature control:</strong> Enzymes function optimally at specific temperatures</li>
+                <li><strong>Nutrient balance:</strong> Regulates uptake and storage of nutrients</li>
                 <li><strong>Water balance:</strong> Osmosis and active transport control water levels</li>
             </ul>
         </section>
@@ -587,14 +823,14 @@
         <section id="facts" class="fun-facts">
             <h3>Fun Facts About Animal Cells</h3>
             <ul>
-                <li><strong>Longest cells:</strong> Some neurons can be over 1 meter (3 feet) long, extending from the spine to the toes!</li>
-                <li><strong>Cell division:</strong> Human cells divide approximately every 24 hours, but this varies by cell type. Red blood cells are replaced every 120 days!</li>
-                <li><strong>Mitochondrial DNA:</strong> Mitochondria have their own DNA, separate from nuclear DNA, supporting the theory they were once independent organisms.</li>
-                <li><strong>Flexible membranes:</strong> The lack of a cell wall allows animal cells to form specialized shapes like the biconcave discs of red blood cells or the branching structure of neurons.</li>
-                <li><strong>Tiny but mighty:</strong> Most animal cells are between 10-30 micrometers in diameter - that's about 1/100th the width of a human hair!</li>
-                <li><strong>Protein powerhouse:</strong> A typical human cell contains about 42 million protein molecules working together.</li>
-                <li><strong>Ancient partnership:</strong> Mitochondria are believed to have evolved about 1.5 billion years ago when a larger cell engulfed a smaller energy-producing bacterium.</li>
-                <li><strong>Constant renewal:</strong> Your body replaces about 330 billion cells every single day!</li>
+                <li><strong>Longest cells:</strong> Some neurons extend over 1 meter in length, reaching from the spinal cord to the toes.</li>
+                <li><strong>Cell division rates:</strong> Human cells divide approximately every 24 hours, though rates vary by cell type. Red blood cells are replaced approximately every 120 days.</li>
+                <li><strong>Mitochondrial DNA:</strong> Mitochondria contain their own DNA, separate from nuclear DNA, supporting the endosymbiotic theory of their evolutionary origin.</li>
+                <li><strong>Flexible membranes:</strong> The absence of a cell wall allows animal cells to form specialized shapes, such as the biconcave discs of red blood cells or the branching structures of neurons.</li>
+                <li><strong>Microscopic size:</strong> Most animal cells measure between 10-30 micrometers in diameter, approximately 1/100th the width of a human hair.</li>
+                <li><strong>Protein abundance:</strong> A typical human cell contains approximately 42 million protein molecules functioning simultaneously.</li>
+                <li><strong>Endosymbiotic origin:</strong> Mitochondria are believed to have originated approximately 1.5 billion years ago through endosymbiosis, when a larger cell engulfed an energy-producing bacterium.</li>
+                <li><strong>Cellular renewal:</strong> The human body replaces approximately 330 billion cells daily through cell division and differentiation.</li>
             </ul>
         </section>
     </div>
@@ -602,6 +838,7 @@
     <footer>
         <p>Animal Cells Educational Guide | Science Project 2025</p>
         <p>Exploring the fascinating world of cellular biology</p>
+        <p style="margin-top: 15px; font-size: 1.2rem; color: #7cfc00;"><strong>Project Made By: ML, YC, GC, BC</strong></p>
     </footer>
 
     <script>
@@ -639,6 +876,26 @@
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+
+        // Meme button functionality
+        const memeBtn = document.getElementById('memeBtn');
+        const memeModal = document.getElementById('memeModal');
+        const closeModal = document.getElementById('closeModal');
+
+        memeBtn.addEventListener('click', () => {
+            memeModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            memeModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside of it
+        memeModal.addEventListener('click', (e) => {
+            if (e.target === memeModal) {
+                memeModal.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
